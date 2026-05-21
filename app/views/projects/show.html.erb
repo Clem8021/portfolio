@@ -1,0 +1,21 @@
+<section id="project-show">
+  <div class="section-header">
+    <span class="section-num"><%= @project.position.to_s.rjust(2, "0") %></span>
+    <span class="section-title"><%= @project.category %></span>
+  </div>
+
+  <div class="proj-show-grid">
+    <div class="proj-show-visual v-<%= @project.category %>"></div>
+
+    <div class="proj-show-info">
+      <h1 class="proj-title"><%= @project.title %></h1>
+      <p class="proj-desc"><%= @project.description %></p>
+
+      <div class="proj-tags">
+        <span class="proj-tag"><%= @project.category %></span>
+      </div>
+
+      <%= link_to "← Tous les projets", projects_path, class: "proj-link" %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+<section id="portfolio">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-title">Projets</span>
+  </div>
+  <div class="projects-list">
+    <% @projects.each do |project| %>
+      <%= render "projects/card", project: project %>
+    <% end %>
+  </div>
+</section>

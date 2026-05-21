@@ -1,0 +1,52 @@
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <span class="section-title">Contact</span>
+  </div>
+  <div class="contact-big">Parlons de votre<br><em>prochain projet.</em></div>
+
+  <div class="contact-grid">
+    <div class="contact-left">
+      <p>Culture, musique, artisanat — si votre projet a une identité forte, je veux travailler avec vous.</p>
+      <div class="contact-info-list">
+        <div class="ci"><span class="ci-label">Email</span><span class="ci-value">contact@votrenom.fr</span></div>
+        <div class="ci"><span class="ci-label">Lieu</span><span class="ci-value">Hauts-de-France & remote</span></div>
+        <div class="ci"><span class="ci-label">Délai</span><span class="ci-value">Réponse sous 48h</span></div>
+      </div>
+    </div>
+
+    <%= form_with model: @contact_message, url: contacts_path, class: "contact-form" do |f| %>
+      <% if @contact_message.errors.any? %>
+        <div class="alert-errors">
+          <% @contact_message.errors.full_messages.each do |msg| %>
+            <p><%= msg %></p>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :name, "Votre nom" %>
+        <%= f.text_field :name, placeholder: "Sophie Martin" %>
+      </div>
+      <div class="field">
+        <%= f.label :email, "Email" %>
+        <%= f.email_field :email, placeholder: "sophie@theatre.fr" %>
+      </div>
+      <div class="field">
+        <%= f.label :project_type, "Type de projet" %>
+        <%= f.select :project_type, [
+          "École ou structure musicale",
+          "Galerie ou lieu culturel",
+          "Artisan ou créateur",
+          "Festival ou événement",
+          "Autre"
+        ], { include_blank: "Choisissez..." } %>
+      </div>
+      <div class="field">
+        <%= f.label :body, "Message" %>
+        <%= f.text_area :body, rows: 4, placeholder: "Parlez-moi de votre projet..." %>
+      </div>
+      <%= f.submit "Envoyer →", class: "btn-send" %>
+    <% end %>
+  </div>
+</section>

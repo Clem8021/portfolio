@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-
   root "pages#index"
-  get "/contact", to: "contacts#new"
-  post "/contact", to: "contacts#create"
+
   resources :projects, only: [:index, :show]
+
+  resources :contacts, only: [:new, :create]
 
   namespace :admin do
     resources :projects

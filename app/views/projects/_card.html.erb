@@ -1,0 +1,14 @@
+<div class="project-item">
+  <div class="proj-visual v-<%= project.category %>">
+    <span class="proj-visual-label"><%= project.category %></span>
+  </div>
+  <div class="proj-info">
+    <div class="proj-meta">
+      <span class="proj-num"><%= project.position.to_s.rjust(2, "0") %></span>
+      <span class="proj-year"><%= project.created_at.year %></span>
+    </div>
+    <h3 class="proj-title"><%= project.title %></h3>
+    <p class="proj-desc"><%= project.description %></p>
+    <%= link_to "Voir le projet →", project_path(project), class: "proj-link" %>
+  </div>
+</div>

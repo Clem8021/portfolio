@@ -1,14 +1,25 @@
 <div class="project-item">
-  <div class="proj-visual v-<%= project.category %>">
-    <span class="proj-visual-label"><%= project.category %></span>
+ <div class="proj-visual">
+    <%= image_tag "projects/#{project.image}", alt: project.title, class: "proj-img" %>
   </div>
   <div class="proj-info">
     <div class="proj-meta">
       <span class="proj-num"><%= project.position.to_s.rjust(2, "0") %></span>
-      <span class="proj-year"><%= project.created_at.year %></span>
+      <span class="proj-year"><%= project.year %></span>
     </div>
     <h3 class="proj-title"><%= project.title %></h3>
+    <p class="proj-tagline"><%= project.tagline %></p>
     <p class="proj-desc"><%= project.description %></p>
-    <%= link_to "Voir le projet →", project_path(project), class: "proj-link" %>
+    <div class="proj-tags">
+      <% project.technologies.split(", ").each do |tech| %>
+        <span class="proj-tag"><%= tech %></span>
+      <% end %>
+    </div>
+    <div class="proj-actions">
+      <%= link_to "Voir le projet →", project_path(project), class: "proj-link" %>
+      <% if project.url.present? %>
+        <%= link_to "Site en ligne ↗", project.url, class: "proj-link-ext", target: "_blank", rel: "noopener" %>
+      <% end %>
+    </div>
   </div>
 </div>

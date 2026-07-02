@@ -1,4 +1,20 @@
 /* ========================================
+   VARIABLES
+======================================== */
+
+:root {
+  --bg:    #F5F1E8;   /* crème principale */
+  --dark:  #1A1A18;   /* quasi-noir */
+  --mid:   #6B6760;   /* gris chaud */
+  --light: #C4BFB6;   /* gris très clair */
+  --green: #3D5A3E;   /* vert sauge */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* ========================================
    HERO
 ======================================== */
 
@@ -181,7 +197,30 @@ h1 em {
 ======================================== */
 
 #services {
-  background: var(--bg);
+  background: #EEEAE1; /* même fond sable que #about */
+}
+
+.services-list {
+  background: var(--bg); /* crème plus claire = les items "ressortent" */
+  padding: 0 2rem;
+}
+
+.service-item {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem;
+  border-bottom: 1px solid var(--light);
+
+  &:first-child {
+    border-top: 1px solid var(--light);
+  }
+
+  &:hover {
+    background: #EEEAE1; /* léger changement au hover */
+    transition: background 0.2s ease;
+  }
 }
 
 .services-intro {
@@ -205,19 +244,6 @@ h1 em {
 .services-list {
   display: flex;
   flex-direction: column;
-}
-
-.service-item {
-  display: grid;
-  grid-template-columns: 2rem 1fr auto;
-  gap: 2rem;
-  align-items: start;
-  padding: 2rem 0;
-  border-top: 1px solid var(--light);
-}
-
-.service-item:last-child {
-  border-bottom: 1px solid var(--light);
 }
 
 .svc-num {
@@ -397,6 +423,43 @@ h1 em {
 .proj-link:hover {
   gap: 0.9rem;
   color: var(--dark);
+}
+
+/* ========================================
+   SECTION HEADER
+======================================== */
+
+section {
+  padding: 6rem 2.5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--light);
+}
+
+.section-num {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+.section-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+.divider {
+  height: 1px;
+  background: var(--light);
+  margin: 0 2.5rem;
 }
 
 /* ========================================

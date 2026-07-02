@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:index, :show]
 
-  resources :contacts, only: [:new, :create]
-
   namespace :admin do
     resources :projects
     root "projects#index"
   end
+
+  get  "/contact", to: "pages#contact",      as: :contact
+  post "/contact", to: "pages#send_contact", as: :send_contact
 end

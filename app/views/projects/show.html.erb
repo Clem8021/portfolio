@@ -5,17 +5,27 @@
   </div>
 
   <div class="proj-show-grid">
-    <div class="proj-show-visual v-<%= @project.category %>"></div>
+    <div class="proj-show-visual v-<%= @project.category %>">
+      <span class="proj-visual-label"><%= @project.year %></span>
+    </div>
 
     <div class="proj-show-info">
+      <p class="proj-tagline"><%= @project.tagline %></p>
       <h1 class="proj-title"><%= @project.title %></h1>
       <p class="proj-desc"><%= @project.description %></p>
 
       <div class="proj-tags">
-        <span class="proj-tag"><%= @project.category %></span>
+        <% @project.technologies.split(", ").each do |tech| %>
+          <span class="proj-tag"><%= tech %></span>
+        <% end %>
       </div>
 
-      <%= link_to "← Tous les projets", projects_path, class: "proj-link" %>
+      <div class="proj-actions">
+        <% if @project.url.present? %>
+          <%= link_to "Voir le site ↗", @project.url, class: "btn-cta-filled", target: "_blank", rel: "noopener" %>
+        <% end %>
+        <%= link_to "← Tous les projets", projects_path, class: "btn-cta" %>
+      </div>
     </div>
   </div>
 </section>

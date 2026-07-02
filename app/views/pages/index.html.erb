@@ -4,10 +4,10 @@
     <div class="hero-tag">Développeuse web · Culture & Artisanat</div>
     <h1>Je construis des sites<br>qui <em>résonnent</em><br>avec votre univers.</h1>
     <div class="hero-bottom">
-      <p class="hero-desc">Formée au Wagon, nourrie par 15 ans de direction musicale. Je code des expériences web sur-mesure pour les acteurs culturels et artisanaux.</p>
+      <p class="hero-desc">Formée au Wagon, nourrie par une vie de musique. Je code des expériences web sur-mesure pour les acteurs culturels et artisanaux.</p>
       <div class="hero-cta">
         <%= link_to "Voir les projets →", projects_path, class: "btn-cta" %>
-        <%= link_to "Me contacter", new_contact_path, class: "btn-cta-filled" %>
+        <%= link_to "Contact", contact_path, class: "btn-cta-filled" %>
       </div>
     </div>
   </div>
@@ -16,23 +16,21 @@
 <div class="divider"></div>
 
 <section id="about">
-  <div class="section-header">
-    <span class="section-num">01</span>
-    <span class="section-title">À propos</span>
   </div>
+  <h2 class="section-heading">Pianiste, directrice,<br><em>développeuse.</em></h2>
   <div class="about-grid">
     <div class="about-left">
       <div class="about-label">Développeuse</div>
-      <div class="about-name">Prénom<br><em>Nom</em></div>
+      <div class="about-name">Clémence<br><em>Marotte</em></div>
       <div class="about-photo">
         <%# Remplace par ton image : %>
-        <%# <%= image_tag "photo.jpg", alt: "Prénom Nom" %> %>
+        <%# <%= image_tag "photo.jpg", alt: "Prénom Nom" %>
         <div class="photo-placeholder">◻ Votre photo</div>
       </div>
     </div>
     <div class="about-right">
       <p class="about-bio">Code et <em>musique</em> partagent la même logique : structure, rythme, et l'art de faire ressentir quelque chose.</p>
-      <p class="about-body">Directrice d'école de musique depuis plus de 15 ans, j'ai rejoint Le Wagon en 2025 pour transformer ma compréhension du monde culturel en compétence technique.</p>
+      <p class="about-body">Pianiste depuis plus de 20 ans, j'ai rejoint Le Wagon en 2025 pour transformer ma compréhension du monde culturel en compétence technique.</p>
       <p class="about-body">Je crée des sites qui reflètent fidèlement l'identité de leurs commanditaires, avec un vrai soin du détail et de l'expérience utilisateur.</p>
       <div class="skills-row">
         <span class="skill-chip hl">Ruby on Rails</span>
@@ -49,10 +47,8 @@
 <div class="divider"></div>
 
 <section id="services">
-  <div class="section-header">
-    <span class="section-num">02</span>
-    <span class="section-title">Services</span>
   </div>
+  <h2 class="section-heading">Ce que je<br><em>construis.</em></h2>
   <div class="services-list">
     <div class="service-item">
       <span class="svc-num">01</span>
@@ -92,10 +88,8 @@
 <div class="divider"></div>
 
 <section id="portfolio-preview">
-  <div class="section-header">
-    <span class="section-num">03</span>
-    <span class="section-title">Projets récents</span>
   </div>
+  <h2 class="section-heading">Réalisations<br><em>récentes.</em></h2>
   <div class="projects-list">
     <% @projects.each do |project| %>
       <%= render "projects/card", project: project %>

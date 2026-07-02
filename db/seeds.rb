@@ -1,30 +1,30 @@
-puts "Nettoyage de la base..."
 Project.destroy_all
-
-puts "Création des projets..."
 
 Project.create!([
   {
-    title: "Conservatoire de Beauvais",
-    description: "Site vitrine et gestion des inscriptions pour une école de 300 élèves. Agenda des concerts, espace professeurs, gestion saisonnière.",
-    category: "music",
-    featured: true,
-    position: 1
-  },
-  {
-    title: "Luthier Dupont",
-    description: "Vitrine pour un luthier indépendant : présentation du savoir-faire, portfolio d'instruments, formulaire de commande sur-mesure.",
+    title: "L'Étamine",
+    tagline: "Fleuriste & wedding designer",
+    description: "Site e-commerce et vitrine pour une artisane fleuriste spécialisée dans les compositions florales sur-mesure et la décoration de mariage. Boutique en ligne, gestion des commandes, espace admin.",
     category: "artisan",
+    url: "https://www.letamine.fr",
+    technologies: "Ruby on Rails, PostgreSQL, Devise, Stimulus",
+    year: 2025,
     featured: true,
-    position: 2
+    position: 1,
+    image: "letamine.jpg"
   },
   {
-    title: "Galerie Lumière",
-    description: "Site galerie avec catalogue d'œuvres filtrable, prise de rendez-vous et newsletter. Une expérience épurée pour mettre l'art en valeur.",
-    category: "art",
+    title: "EcolaZik",
+    tagline: "École de musique",
+    description: "Site vitrine pour une école de musique proposant cours individuels, ateliers collectifs et stages d'été. Présentation des intervenants, tarifs et formulaire de contact.",
+    category: "musique",
+    url: "https://www.ecolazik.com",
+    technologies: "Ruby on Rails, PostgreSQL, Stimulus",
+    year: 2025,
     featured: true,
-    position: 3
+    position: 2,
+    image: "ecolazik.jpg"
   }
 ])
 
-puts "#{Project.count} projets créés ✓"
+puts "✓ #{Project.count} projets créés"

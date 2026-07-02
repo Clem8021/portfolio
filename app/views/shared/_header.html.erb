@@ -1,0 +1,9 @@
+<header class="site-header">
+  <%= link_to root_path, class: "site-header__logo" do %>
+    Clémence Marotte
+  <% end %>
+  <nav class="site-header__nav">
+    <%= link_to "Projets", projects_path, class: "site-header__link active" %>
+    <%= link_to "Contact", contact_path, class: "site-header__link" %>
+  </nav>
+</header>

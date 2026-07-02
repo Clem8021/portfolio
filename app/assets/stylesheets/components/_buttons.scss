@@ -1,0 +1,42 @@
+/* ========================================
+   BOUTONS
+======================================== */
+
+.btn-cta,
+.btn-cta-filled {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+/* Contour — discret, comme tes .skill-chip */
+.btn-cta {
+  border: 1px solid var(--light);
+  color: var(--mid);
+  background: transparent;
+
+  &:hover {
+    border-color: var(--dark);
+    color: var(--dark);
+    gap: 0.9rem; /* effet glissement de la flèche → */
+  }
+}
+
+/* Plein — accent vert comme tes .skill-chip.hl */
+.btn-cta-filled {
+  border: 1px solid var(--green);
+  color: var(--bg);
+  background: var(--green);
+
+  &:hover {
+    background: transparent;
+    color: var(--green);
+  }
+}

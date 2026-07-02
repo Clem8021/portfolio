@@ -1,0 +1,41 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2.5rem;
+  background: var(--bg);
+
+  &__logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--dark);
+    letter-spacing: 0.02em;
+
+    &:hover {
+      color: var(--green);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  &__link {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    transition: color 0.2s;
+
+    &:hover,
+    &.active {
+      color: var(--dark);
+    }
+  }
+}

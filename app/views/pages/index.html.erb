@@ -2,7 +2,7 @@
   <div class="hero-content">
     <div class="hero-line"></div>
     <div class="hero-tag">Développeuse web · Culture & Artisanat</div>
-    <h1>Je construis des sites<br>qui <em>résonnent</em><br>avec votre univers.</h1>
+    <h1>Je construis des sites<br>qui <em class="wave-text"><span>r</span><span>é</span><span>s</span><span>o</span><span>n</span><span>n</span><span>e</span><span>n</span><span>t</span></em><br>avec votre univers.</h1>
     <div class="hero-bottom">
       <p class="hero-desc">Formée au Wagon, nourrie par une vie de musique. Je code des expériences web sur-mesure pour les acteurs culturels et artisanaux.</p>
       <div class="hero-cta">
@@ -15,20 +15,18 @@
 
 <div class="divider"></div>
 
-<section id="about">
-  </div>
-  <h2 class="section-heading">Pianiste, directrice,<br><em>développeuse.</em></h2>
+<section id="about" data-controller="reveal">
+  <h2 class="section-heading reveal" data-reveal-target="item">Pianiste &amp; <em>développeuse</em></h2>
   <div class="about-grid">
-    <div class="about-left">
-      <div class="about-label">Développeuse</div>
-      <div class="about-name">Clémence<br><em>Marotte</em></div>
+    <div class="about-left reveal" data-reveal-target="item">
+      <div class="about-name">Clémence <em>Marotte</em></div>
       <div class="about-photo">
         <%# Remplace par ton image : %>
         <%# <%= image_tag "photo.jpg", alt: "Prénom Nom" %>
         <div class="photo-placeholder">◻ Votre photo</div>
       </div>
     </div>
-    <div class="about-right">
+    <div class="about-right reveal" data-reveal-target="item" data-reveal-delay="1">
       <p class="about-bio">Code et <em>musique</em> partagent la même logique : structure, rythme, et l'art de faire ressentir quelque chose.</p>
       <p class="about-body">Pianiste depuis plus de 20 ans, j'ai rejoint Le Wagon en 2025 pour transformer ma compréhension du monde culturel en compétence technique.</p>
       <p class="about-body">Je crée des sites qui reflètent fidèlement l'identité de leurs commanditaires, avec un vrai soin du détail et de l'expérience utilisateur.</p>
@@ -46,11 +44,10 @@
 
 <div class="divider"></div>
 
-<section id="services">
-  </div>
-  <h2 class="section-heading">Ce que je<br><em>construis.</em></h2>
+<section id="services" data-controller="reveal">
+  <h2 class="section-heading reveal" data-reveal-target="item">Ce que je<br><em>construis.</em></h2>
   <div class="services-list">
-    <div class="service-item">
+    <div class="service-item reveal" data-reveal-target="item" data-reveal-delay="1">
       <span class="svc-num">01</span>
       <div class="svc-body">
         <h3>Site vitrine culturel</h3>
@@ -58,7 +55,7 @@
       </div>
       <span class="svc-price">Sur devis</span>
     </div>
-    <div class="service-item">
+    <div class="service-item reveal" data-reveal-target="item" data-reveal-delay="2">
       <span class="svc-num">02</span>
       <div class="svc-body">
         <h3>Vitrine artisanale & créatrice</h3>
@@ -66,7 +63,7 @@
       </div>
       <span class="svc-price">Sur devis</span>
     </div>
-    <div class="service-item">
+    <div class="service-item reveal" data-reveal-target="item" data-reveal-delay="3">
       <span class="svc-num">03</span>
       <div class="svc-body">
         <h3>Refonte & optimisation</h3>
@@ -74,7 +71,7 @@
       </div>
       <span class="svc-price">À partir de 800 €</span>
     </div>
-    <div class="service-item">
+    <div class="service-item reveal" data-reveal-target="item" data-reveal-delay="4">
       <span class="svc-num">04</span>
       <div class="svc-body">
         <h3>Landing page & one-pager</h3>
@@ -87,13 +84,14 @@
 
 <div class="divider"></div>
 
-<section id="portfolio-preview">
-  </div>
-  <h2 class="section-heading">Réalisations<br><em>récentes.</em></h2>
+<section id="portfolio-preview" data-controller="reveal">
+  <h2 class="section-heading reveal" data-reveal-target="item">Réalisations<br><em>récentes.</em></h2>
   <div class="projects-list">
-    <% @projects.each do |project| %>
-      <%= render "projects/card", project: project %>
+    <% @projects.each_with_index do |project, i| %>
+      <%= render "projects/card", project: project, reveal_delay: (i % 5) + 1 %>
     <% end %>
   </div>
-  <%= link_to "Voir tous les projets →", projects_path, class: "btn-cta" %>
+  <%= link_to "Voir tous les projets →", projects_path, class: "btn-cta-filled" %>
 </section>
+
+<%= render "shared/footer" %>

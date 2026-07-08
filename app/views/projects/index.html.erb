@@ -1,10 +1,12 @@
 <%= render "shared/header" %>
 
-<section id="portfolio">
-  <h2 class="section-heading">Réalisations<br><em>récentes</em></h2>
+<section id="portfolio" data-controller="reveal">
+  <h2 class="section-heading reveal" data-reveal-target="item">Réalisations<br><em>récentes</em></h2>
   <div class="projects-list">
-    <% @projects.each do |project| %>
-      <%= render "projects/card", project: project %>
+    <% @projects.each_with_index do |project, i| %>
+      <%= render "projects/card", project: project, reveal_delay: (i % 5) + 1 %>
     <% end %>
   </div>
 </section>
+
+<%= render "shared/footer" %>

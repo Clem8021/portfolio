@@ -16,7 +16,6 @@
       <% end %>
     </div>
     <div class="proj-actions">
-      <%= link_to "Voir le projet →", project_path(project), class: "proj-link" %>
       <% if project.url.present? %>
         <%= link_to "Site en ligne ↗", project.url, class: "proj-link-ext", target: "_blank", rel: "noopener" %>
       <% end %>

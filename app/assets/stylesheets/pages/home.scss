@@ -727,3 +727,38 @@ section {
     gap: 1.25rem;
   }
 }
+
+/* --- Apparition progressive depuis la gauche (reveal on scroll) --- */
+ 
+/* État initial : invisible et décalé vers la gauche. */
+.reveal {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+ 
+/* État révélé : la classe est ajoutée par le contrôleur Stimulus. */
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+ 
+/* Échelonnement (stagger) piloté par data-reveal-delay, sans toucher au JS.
+   Le délai ne s'applique qu'à l'entrée (is-visible), pas à l'état initial. */
+.reveal.is-visible[data-reveal-delay="1"] { transition-delay: 120ms; }
+.reveal.is-visible[data-reveal-delay="2"] { transition-delay: 240ms; }
+.reveal.is-visible[data-reveal-delay="3"] { transition-delay: 360ms; }
+.reveal.is-visible[data-reveal-delay="4"] { transition-delay: 480ms; }
+.reveal.is-visible[data-reveal-delay="5"] { transition-delay: 600ms; }
+.reveal.is-visible[data-reveal-delay="6"] { transition-delay: 720ms; }
+ 
+/* Sécurité accessibilité : pas d'animation si l'utilisateur la refuse. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+ 

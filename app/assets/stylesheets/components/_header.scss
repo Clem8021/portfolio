@@ -6,14 +6,22 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem 2.5rem;
-  background: var(--bg);
+
+  // Fond translucide + flou : le contenu défile joliment dessous
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  // Hairline très discrète pour séparer du contenu
+  border-bottom: 1px solid color-mix(in srgb, var(--dark) 8%, transparent);
 
   &__logo {
     font-family: 'Instrument Serif', serif;
-    font-size: 0.95rem;
+    font-size: 1.1rem;          // un peu plus présent, c'est ta signature
     font-weight: 400;
     color: var(--dark);
     letter-spacing: 0.02em;
+    transition: color 0.2s ease;
 
     &:hover {
       color: var(--green);
@@ -27,15 +35,42 @@
   }
 
   &__link {
+    position: relative;
     font-size: 0.65rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--mid);
-    transition: color 0.2s;
+    transition: color 0.2s ease;
 
-    &:hover,
+    // Soulignement animé qui pousse depuis la gauche
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.4rem;
+      width: 100%;
+      height: 1px;
+      background: var(--dark);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    &:hover {
+      color: var(--dark);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    // La page courante reste soulignée en permanence
     &.active {
       color: var(--dark);
+
+      &::after {
+        transform: scaleX(1);
+      }
     }
   }
 }
